@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject2;
+package com.crediloco.crediloco;
 
 public class Main {
 
