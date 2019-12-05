@@ -16,6 +16,10 @@ public class Cliente {
         this.nombre = nombreNuevo;
     }
 
+    public String toString() {
+        return "Cliente{" + "dni=" + dni + ", domicilio=" + domicilio + ", ingresos=" + ingresos + ", prestamos=" + prestamos + ", nombre=" + nombre + '}';
+    }
+
     public DocumentoDigital getDni() {
         return dni;
     }
