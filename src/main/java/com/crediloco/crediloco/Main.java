@@ -6,24 +6,23 @@ import com.crediloco.crediloco.dominio.Prestamo;
 import java.math.BigDecimal;
 
 // java ->   Main.main();
-
 public class Main {
 
     public static void main(String[] parametros) {
         System.out.println("Hola mundo!");
 
         Banco bancoSaenz = Banco.obtenerBanco();
-        
+
         String codigoDelBanco = bancoSaenz.getCodigo();
-        
+
         System.out.println(Banco.convertirAString());
 
 
         BigDecimal elMonto = new BigDecimal("1550.25");
         Prestamo miPrimerPrestamo = new Prestamo(bancoSaenz, elMonto, 6);
 
-        //elMonto.setScale(5);
         //elMonto = new BigDecimal(4435.564);
+        //elMonto.setScale(5, RoundingMode.HALF_UP);
         //miPrimerPrestamo.setMonto(elMonto);
         Prestamo miSegundoPrestamo = new Prestamo(bancoSaenz, elMonto, 12);
 
