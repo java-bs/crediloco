@@ -10,8 +10,10 @@ public class Prestamo {
     private BigDecimal tasa;
     private DocumentoDigital[] documentoDigitales;
 
-//    public Prestamo() {
-//    }
+    // Constructor default
+    
+    //public Prestamo() {
+    //}
     
     public Prestamo(Banco banco, BigDecimal monto, Integer cantidadCuotas) {
         this.banco = banco;
@@ -34,17 +36,17 @@ public class Prestamo {
     }
 
     //Para que no se pueda actualizar monto
-//    private void setMonto(BigDecimal monto) {
-//        this.monto = monto;
-//    }
+    //private void setMonto(BigDecimal monto) {
+    //    this.monto = monto;
+    //}
 
     public Integer getCantidadCuotas() {
         return cantidadCuotas;
     }
 
-//    public void setCantidadCuotas(Integer cantidadCuotas) {
-//        this.cantidadCuotas = cantidadCuotas;
-//    }
+    //public void setCantidadCuotas(Integer cantidadCuotas) {
+    //    this.cantidadCuotas = cantidadCuotas;
+    //}
 
     public BigDecimal getTasa() {
         return tasa;
