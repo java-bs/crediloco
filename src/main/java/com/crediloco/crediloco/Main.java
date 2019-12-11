@@ -13,9 +13,7 @@ public class Main {
 
         Banco bancoSaenz = Banco.obtenerBanco();
 
-        String codigoDelBanco = bancoSaenz.getCodigo();
-
-        System.out.println(Banco.convertirAString());
+        System.out.println("Iniciando sistema del banco: " + bancoSaenz);
 
 
         BigDecimal elMonto = new BigDecimal("1550.25");

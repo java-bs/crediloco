@@ -5,12 +5,12 @@ public class Banco {
     private static Banco instancia;
     private String codigo;
 
-    //constructor privado
+    //constructor privado, sólo accesible desde esta clase
     private Banco(String codigo) {
         this.codigo = codigo;
     }
 
-    //metódo perteneciente a la clase
+    //metódo perteneciente a la clase (static)
     public static Banco obtenerBanco() {
         if (instancia == null) {
             instancia = new Banco("SNZ");
@@ -20,17 +20,7 @@ public class Banco {
         }
     }
 
-    //metódo perteneciente a la clase
-    public static String convertirAString() {
-        return "Banco " + instancia.codigo;
-    }
-
-    // metodo perteneciente al objeto creado
-    public String getCodigo() {
-        return codigo;
-    }
-
-    //metódo perteneciente al objeto creado
+    //metódo perteneciente al objeto creado (la instancia)
     public String toString() {
         return "Banco{" + "codigo=" + codigo + '}';
     }
