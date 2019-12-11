@@ -19,4 +19,8 @@ public class PrestamoPersonal extends Prestamo {
         this.situacionVeraz = situacionVeraz;
     }
 
+    public String toString() {
+        return "Situacion veraz: " + this.situacionVeraz;
+    }
+
 }

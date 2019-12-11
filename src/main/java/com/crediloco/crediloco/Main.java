@@ -17,24 +17,23 @@ public class Main {
         System.out.println("Iniciando sistema del banco: " + bancoSaenz);
 
         BigDecimal elMonto = new BigDecimal("1550.25");
-        PrestamoPersonal miPrimerPrestamo = new PrestamoPersonal(bancoSaenz, elMonto, 6);
+        Prestamo miPrimerPrestamo = new PrestamoPersonal(bancoSaenz, elMonto, 6);
 
         //elMonto = new BigDecimal(4435.564);
         //elMonto.setScale(5, RoundingMode.HALF_UP);
         //miPrimerPrestamo.setMonto(elMonto);
-        PrestamoPersonal miSegundoPrestamo = new PrestamoPersonal(bancoSaenz, elMonto, 12);
+        Prestamo miSegundoPrestamo = new PrestamoPersonal(bancoSaenz, elMonto, 12);
 
         //uso de constructor de Cliente
         //como no hay setter del nombre, una vez que lo creo no lo puedo cambiar
         Cliente cliente = new Cliente("José");
 
-        PrestamoPersonal miPrestamoPersonal = new PrestamoPersonal(bancoSaenz, elMonto, 30);
-        miPrestamoPersonal.getMonto();
-        miPrestamoPersonal.getSituacionVeraz();
+        PrestamoPersonal miTercerPrestamoPersonal = new PrestamoPersonal(bancoSaenz, elMonto, 30);
+        miTercerPrestamoPersonal.setSituacionVeraz("AA");
 
         Prestamo[] prestamosDelCliente = {miPrimerPrestamo,
             miSegundoPrestamo,
-            miPrestamoPersonal};
+            miTercerPrestamoPersonal};
         //asignacion de prestamos al cliente
         cliente.setPrestamos(prestamosDelCliente);
 
