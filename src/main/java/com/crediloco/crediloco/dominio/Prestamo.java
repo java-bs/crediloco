@@ -2,7 +2,8 @@ package com.crediloco.crediloco.dominio;
 
 import java.math.BigDecimal;
 
-public class Prestamo {
+//clase abstracta, no instanciable
+public abstract class Prestamo {
 
     private Banco banco;
     private BigDecimal monto;
@@ -15,7 +16,10 @@ public class Prestamo {
     //public Prestamo() {
     //}
     
-    public Prestamo(Banco banco, BigDecimal monto, Integer cantidadCuotas) {
+    public Prestamo(
+            Banco banco,
+            BigDecimal monto,
+            Integer cantidadCuotas) {
         this.banco = banco;
         this.monto = monto;
         this.cantidadCuotas = cantidadCuotas;
