@@ -25,6 +25,9 @@ public class Cliente implements ImprimirDatos {
         System.out.println("Impresión: "
                 + "DNI = " + dni + ", ingresos = " + ingresos
                 + ". Color de impresión: " + COLORSECUNDARIO);
+        for (Prestamo prestamo : this.prestamos) {
+            prestamo.imprimirDatos();
+        }
     }
 
     public DocumentoDigital getDni() {

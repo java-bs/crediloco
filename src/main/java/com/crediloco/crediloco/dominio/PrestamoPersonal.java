@@ -7,8 +7,9 @@ public class PrestamoPersonal extends Prestamo {
 
     private String situacionVeraz;
 
-    public PrestamoPersonal(Banco banco, BigDecimal monto, Integer cantidadCuotas) {
+    public PrestamoPersonal(Banco banco, BigDecimal monto, Integer cantidadCuotas, String situacionVeraz) {
         super(banco, monto, cantidadCuotas);
+        this.situacionVeraz = situacionVeraz;
     }
 
     public String getSituacionVeraz() {
@@ -19,8 +20,9 @@ public class PrestamoPersonal extends Prestamo {
         this.situacionVeraz = situacionVeraz;
     }
 
+    @Override
     public String toString() {
-        return "Situacion veraz: " + this.situacionVeraz;
+        return "PrestamoPersonal{" + "Situacion Veraz: " + situacionVeraz + '}';
     }
 
 }

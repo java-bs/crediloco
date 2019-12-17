@@ -11,6 +11,7 @@ public abstract class Prestamo implements ImprimirDatos {
     private Integer cantidadCuotas;
     private BigDecimal tasa;
     private DocumentoDigital[] documentoDigitales;
+    private String estado;
 
     // Constructor default
     //public Prestamo() {
@@ -22,6 +23,7 @@ public abstract class Prestamo implements ImprimirDatos {
         this.banco = banco;
         this.monto = monto;
         this.cantidadCuotas = cantidadCuotas;
+        this.estado = "ACTIVO";
     }
 
     //método que sobreescribe el toString() default
@@ -37,7 +39,7 @@ public abstract class Prestamo implements ImprimirDatos {
                 + "monto del préstamo = " + monto
                 + ", cantidad de cuotas = " + cantidadCuotas
                 + ". Color de impresión: " + COLORDEFAULT);
-    };
+    }
 
     public BigDecimal getMonto() {
         return monto;
@@ -55,9 +57,11 @@ public abstract class Prestamo implements ImprimirDatos {
         return cantidadCuotas;
     }
 
-    //public void setCantidadCuotas(Integer cantidadCuotas) {
-    //    this.cantidadCuotas = cantidadCuotas;
-    //}
+    //solo accesible desde esta clase
+    private void setCantidadCuotas(Integer cantidadCuotas) {
+        this.cantidadCuotas = cantidadCuotas;
+    }
+
     public BigDecimal getTasa() {
         return tasa;
     }
@@ -72,6 +76,32 @@ public abstract class Prestamo implements ImprimirDatos {
 
     public void setDocumentoDigitales(DocumentoDigital[] documentoDigitales) {
         this.documentoDigitales = documentoDigitales;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Boolean cancelarCuotas(int cantidadACancelar) {
+        int diferenciaDeCuotas = cantidadCuotas - cantidadACancelar;
+        // Verifico que sea posible cancelar dicha cantidad de cuotas
+        if (diferenciaDeCuotas >= 0) {
+            // Setteo la cantidadDeCuotas a la cantidad de cuotas restantes
+            setCantidadCuotas(diferenciaDeCuotas);
+            return true;
+        } else {
+            cancelarCuotas(cantidadACancelar - 1); //recursivo!!
+        }
+        return false;
+    }
+
+    // Función para cancelar préstamos
+    public void cancelarPrestamo() {
+        this.estado = "CANCELADO";
     }
 
 }
