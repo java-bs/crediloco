@@ -2,14 +2,14 @@ package com.crediloco.crediloco.dominio;
 
 import java.math.BigDecimal;
 
-public class Cliente {
+public class Cliente implements ImprimirDatos {
 
     private DocumentoDigital dni;
     private Domicilio domicilio;
     private BigDecimal ingresos;
     private Prestamo[] prestamos;
     private String nombre;
-    
+
     //constructor que recibe y asigna el nombre durante la creación del objeto
     public Cliente(String nombreNuevo) {
         System.out.println("Creacion de cliente " + nombreNuevo);
@@ -18,6 +18,13 @@ public class Cliente {
 
     public String toString() {
         return "Cliente{" + "dni=" + dni + ", domicilio=" + domicilio + ", ingresos=" + ingresos + ", prestamos=" + prestamos + ", nombre=" + nombre + '}';
+    }
+
+    @Override
+    public void imprimirDatos() {
+        System.out.println("Impresión: "
+                + "DNI = " + dni + ", ingresos = " + ingresos
+                + ". Color de impresión: " + COLORSECUNDARIO);
     }
 
     public DocumentoDigital getDni() {
@@ -51,5 +58,5 @@ public class Cliente {
     public void setPrestamos(Prestamo[] prestamos) {
         this.prestamos = prestamos;
     }
-    
+
 }

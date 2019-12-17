@@ -1,9 +1,10 @@
 package com.crediloco.crediloco.dominio;
 
+import static com.crediloco.crediloco.dominio.ImprimirDatos.COLORDEFAULT;
 import java.math.BigDecimal;
 
 //clase abstracta, no instanciable
-public abstract class Prestamo {
+public abstract class Prestamo implements ImprimirDatos {
 
     private Banco banco;
     private BigDecimal monto;
@@ -12,10 +13,8 @@ public abstract class Prestamo {
     private DocumentoDigital[] documentoDigitales;
 
     // Constructor default
-    
     //public Prestamo() {
     //}
-    
     public Prestamo(
             Banco banco,
             BigDecimal monto,
@@ -31,6 +30,15 @@ public abstract class Prestamo {
                 + " // cantidad de cuotas: " + this.cantidadCuotas;
     }
 
+    // Implementación del método imprimirDatos() declarado en la interfaz ImprimirDatos
+    @Override
+    public void imprimirDatos() {
+        System.out.println("Impresión: "
+                + "monto del préstamo = " + monto
+                + ", cantidad de cuotas = " + cantidadCuotas
+                + ". Color de impresión: " + COLORDEFAULT);
+    };
+
     public BigDecimal getMonto() {
         return monto;
     }
@@ -43,7 +51,6 @@ public abstract class Prestamo {
     //private void setMonto(BigDecimal monto) {
     //    this.monto = monto;
     //}
-
     public Integer getCantidadCuotas() {
         return cantidadCuotas;
     }
@@ -51,7 +58,6 @@ public abstract class Prestamo {
     //public void setCantidadCuotas(Integer cantidadCuotas) {
     //    this.cantidadCuotas = cantidadCuotas;
     //}
-
     public BigDecimal getTasa() {
         return tasa;
     }
