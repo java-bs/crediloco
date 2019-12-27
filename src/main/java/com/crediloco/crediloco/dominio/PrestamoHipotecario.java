@@ -25,9 +25,10 @@ public class PrestamoHipotecario extends Prestamo {
         return "PrestamoHipotecario{" + " Garantia: " + garantia + '}';
     }
 
-    @Override
-    public void imprimirDatos() {
-        System.out.println("Impresión: HIPOTECARIO");
-    }
+// Esto sobreescribe el comportamiento definido en Prestamo
+//    @Override
+//    public void imprimirDatos() {
+//        System.out.println("Impresión: HIPOTECARIO");
+//    }
 
 }

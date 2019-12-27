@@ -2,6 +2,7 @@ package com.crediloco.crediloco.dominio;
 
 import static com.crediloco.crediloco.dominio.ImprimirDatos.COLORDEFAULT;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 //clase abstracta, no instanciable
 public abstract class Prestamo implements ImprimirDatos {
@@ -12,6 +13,8 @@ public abstract class Prestamo implements ImprimirDatos {
     private BigDecimal tasa;
     private DocumentoDigital[] documentoDigitales;
     private String estado;
+    private LocalDate fechaAcreditacion;
+    private LocalDate fechaAsignacion;
 
     // Constructor default
     //public Prestamo() {
@@ -38,6 +41,7 @@ public abstract class Prestamo implements ImprimirDatos {
         System.out.println("Impresión: "
                 + "monto del préstamo = " + monto
                 + ", cantidad de cuotas = " + cantidadCuotas
+                + ", fecha de acreditacion = " + fechaAcreditacion
                 + ". Color de impresión: " + COLORDEFAULT);
     }
 
@@ -78,6 +82,22 @@ public abstract class Prestamo implements ImprimirDatos {
         this.documentoDigitales = documentoDigitales;
     }
 
+    public LocalDate getFechaAcreditacion() {
+        return fechaAcreditacion;
+    }
+
+    public void setFechaAcreditacion(LocalDate fechaAcreditacion) {
+        this.fechaAcreditacion = fechaAcreditacion;
+    }
+
+    public LocalDate getFechaAsignacion() {
+        return fechaAsignacion;
+    }
+
+    public void setFechaAsignacion(LocalDate fechaAsignacion) {
+        this.fechaAsignacion = fechaAsignacion;
+    }
+    
     public String getEstado() {
         return estado;
     }

@@ -1,6 +1,9 @@
 package com.crediloco.crediloco.dominio;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public class Cliente implements ImprimirDatos {
 
@@ -25,6 +28,10 @@ public class Cliente implements ImprimirDatos {
         System.out.println("Impresión: "
                 + "DNI = " + dni + ", ingresos = " + ingresos
                 + ". Color de impresión: " + COLORSECUNDARIO);
+        
+        List<Prestamo> listaPrestamos = Arrays.asList(prestamos);
+        listaPrestamos.sort(Comparator.comparing(Prestamo::getFechaAcreditacion));
+        
         for (Prestamo prestamo : this.prestamos) {
             prestamo.imprimirDatos();
         }
