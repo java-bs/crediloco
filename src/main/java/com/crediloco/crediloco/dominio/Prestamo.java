@@ -38,8 +38,8 @@ public abstract class Prestamo implements ImprimirDatos {
     // Implementación del método imprimirDatos() declarado en la interfaz ImprimirDatos
     @Override
     public void imprimirDatos() {
-        System.out.println("Impresión: "
-                + "monto del préstamo = " + monto
+        System.out.println(this.getClass().getSimpleName()
+                + ": monto del préstamo = " + monto
                 + ", cantidad de cuotas = " + cantidadCuotas
                 + ", fecha de acreditacion = " + fechaAcreditacion
                 + ". Color de impresión: " + COLORDEFAULT);

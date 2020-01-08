@@ -1,9 +1,11 @@
 package com.crediloco.crediloco.dominio;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cliente implements ImprimirDatos {
 
@@ -30,9 +32,15 @@ public class Cliente implements ImprimirDatos {
                 + ". Color de impresión: " + COLORSECUNDARIO);
         
         List<Prestamo> listaPrestamos = Arrays.asList(prestamos);
-        listaPrestamos.sort(Comparator.comparing(Prestamo::getFechaAcreditacion));
+        List<Prestamo> listaFiltrada = listaPrestamos.stream()
+                .filter(pres -> pres.getFechaAcreditacion() != null)
+                .filter(i -> i.getFechaAcreditacion().isBefore(LocalDate.now()))
+                .collect(Collectors.toList());
         
-        for (Prestamo prestamo : this.prestamos) {
+        listaFiltrada
+                .sort(Comparator.comparing(Prestamo::getFechaAcreditacion));
+        
+        for (Prestamo prestamo : listaFiltrada) {
             prestamo.imprimirDatos();
         }
     }
