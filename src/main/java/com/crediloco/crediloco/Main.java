@@ -7,13 +7,21 @@ import com.crediloco.crediloco.dominio.PrestamoHipotecario;
 import com.crediloco.crediloco.dominio.PrestamoPersonal;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Arrays;
+import static java.util.Arrays.asList;
 import java.util.List;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 // java ejecuta  ->  Main.main();
+@SpringBootApplication
 public class Main {
 
     public static void main(String[] parametros) {
+
+        SpringApplication.run(Main.class, parametros);
+
         System.out.println("Hola mundo!");
 
         Banco bancoSaenz = Banco.obtenerBanco();
@@ -44,7 +52,7 @@ public class Main {
             miPrestamoHipotecario};
         //asignacion de prestamos al cliente
         cliente.setPrestamos(prestamosDelCliente);
-        
+
         cliente.imprimirDatos();
 //        miPrestamoHipotecario.imprimirDatos();
     }
