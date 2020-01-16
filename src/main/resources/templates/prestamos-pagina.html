@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crediloco</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table {
+                border: 1px solid royalblue;
+            }
+            td {
+                border: 1px solid lightskyblue;
+            }
+            body {
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h3>Mis préstamos</h3>
+
+        <table>
+            <tr th:each="prestamo: ${prestamos}">
+                <td th:text="${prestamo.monto}" />
+                <td th:text="${prestamo.cantidadCuotas}" />
+            </tr>
+        </table>
+
+        <br>
+        Otro préstamo:
+        <p th:text="${otroPrestamo.monto}"></p>
+
+        <button><a href="/">< Volver</<a></button>
+
+    </body>
+</html>

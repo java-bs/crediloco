@@ -8,6 +8,7 @@ import java.time.LocalDate;
 public abstract class Prestamo implements ImprimirDatos {
 
     private Banco banco;
+    private Integer numero;
     private BigDecimal monto;
     private Integer cantidadCuotas;
     private BigDecimal tasa;
@@ -43,6 +44,14 @@ public abstract class Prestamo implements ImprimirDatos {
                 + ", cantidad de cuotas = " + cantidadCuotas
                 + ", fecha de acreditacion = " + fechaAcreditacion
                 + ". Color de impresión: " + COLORDEFAULT);
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
 
     public BigDecimal getMonto() {
