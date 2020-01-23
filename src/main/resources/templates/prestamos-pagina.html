@@ -21,7 +21,7 @@
         <h3>Mis préstamos</h3>
 
         <p>Con th:each puedo iterar la lista inyectada en el atributo "prestamos"</p>
-        
+
         <table>
             <tr th:each="prestamo: ${prestamos}">
                 <td th:text="${prestamo.monto}" />
@@ -30,10 +30,45 @@
         </table>
 
         <p>Aca estoy usando el prestamo cargado en el atributo "otroPrestamo"</p>
-        
+
         <p th:text="${otroPrestamo.monto}"></p>
 
-        <button><a href="/">< Volver</<a></button>
+        <button><a href="/">< Volver</a></button>
 
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+
+        <script>
+
+            //Envío de datos con POST
+            
+            var prestamo = {
+                situacionVeraz: "1234"
+            };
+            //convierto el objeto a String
+            var prestamoJson = JSON.stringify(prestamo);
+
+            $.ajax({
+                contentType: 'application/json',
+                type: 'POST',
+                url: "/apirest/prestamos",
+                data: prestamoJson
+            });
+
+
+            //Pedido de datos con GET
+            
+            $.ajax({
+                contentType: 'application/json',
+                type: 'GET',
+                url: "/apirest/prestamos/777777"
+            })
+            .done(function (respuesta) {
+                // se encadena la funcion "done" para hacer algo
+                // una vez que llega la respuesta del servidor
+                console.log(respuesta)
+                //se imprime por consola del navegador (F12)
+            });
+
+        </script>
     </body>
 </html>

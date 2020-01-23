@@ -9,8 +9,10 @@ import java.time.LocalDate;
 import static java.util.Arrays.asList;
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -50,4 +52,15 @@ public class PrestamoRestController {
         
         return miPrimerPrestamo;
     }
+    
+    @RequestMapping(method = POST, path = "/apirest/prestamos")
+    public void crearPrestamo(@RequestBody PrestamoPersonal prestamo){
+        
+        //No se puede usar la clase "Prestamo" porque la conversión
+        // no maneja clases abstractas
+        
+        System.out.println(prestamo);
+        
+    }
+    
 }
