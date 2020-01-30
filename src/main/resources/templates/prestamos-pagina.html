@@ -40,7 +40,7 @@
         <script>
 
             //Envío de datos con POST
-            
+
             var prestamo = {
                 situacionVeraz: "1234"
             };
@@ -56,18 +56,18 @@
 
 
             //Pedido de datos con GET
-            
+
             $.ajax({
                 contentType: 'application/json',
                 type: 'GET',
                 url: "/apirest/prestamos/777777"
             })
-            .done(function (respuesta) {
-                // se encadena la funcion "done" para hacer algo
-                // una vez que llega la respuesta del servidor
-                console.log(respuesta)
-                //se imprime por consola del navegador (F12)
-            });
+                    .done(function (respuesta) {
+                        // se encadena la funcion "done" para hacer algo
+                        // una vez que llega la respuesta del servidor
+                        console.log(respuesta)
+                        //se imprime por consola del navegador (F12)
+                    });
 
         </script>
     </body>

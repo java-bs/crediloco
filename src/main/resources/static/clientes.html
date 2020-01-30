@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crediloco</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #clientes {
+                border: 1px solid royalblue;
+            }
+            #clientes span {
+                border: 1px solid lightskyblue;
+            }
+            body {
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h3>Dar de alta cliente</h3>
+
+        <label>Nombre: </label>
+        <input id="nombre" type="text">
+        <br>
+
+        <label>DNI: </label>
+        <input id="dni" type="number">
+        <br>
+
+        <label>Ingresos: </label>
+        <input id="ingresos" type="number">
+        <br>
+        <br>
+
+        <button onclick="confirmar()">Confirmar</button>
+
+
+        <div id="clientes">
+        </div>
+
+        <br>
+
+        <button><a href="/">< Volver</a></button>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+
+        <script>
+
+            function confirmar() {
+                console.log("CONFIRMÉ");
+
+                // jQuery y $ son sinónimos
+                var nombreCliente = jQuery('#nombre').val();
+                var dniCliente = jQuery('#dni').val();
+
+                if (dniCliente > 90000000) {
+                    alert('El dni debe ser menor a 90M')
+                    return;
+                }
+
+                //alert(nombreCliente + dniCliente)
+
+                //  El método html() reemplaza el contenido del elemento seleccionado
+                // $('#clientes').html(nombreCliente + ' / ' + dniCliente)
+                
+                //  El método append() agrega contenido al elemento seleccionado
+                $('#clientes').append('<span>' + nombreCliente + ', ' + dniCliente + '</span>' + '<br>');
+
+                // Si quiero enviar la información al backend
+//                $.ajax({
+//                    url: '/apirest/clientes',
+//                    method: 'POST',
+//                    data: {
+//                         "nombre": nombreCliente,
+//                         "dni": dniCliente 
+//                    },
+//                    success: function(resultado){
+//                          alert(resultado)
+//                    }
+//                })
+            }
+
+        </script>
+
+
+    </body>
+</html>
