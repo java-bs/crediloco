@@ -38,7 +38,7 @@ public class PrestamoRestController {
             miPrestamoHipotecario};
         return asList(prestamosDelCliente);
     }
-    
+
     @RequestMapping(method = GET, path = "/apirest/prestamos/{numero}")
     public Prestamo obtenerPrestamoPorNumero(@PathVariable Integer numero) {
 
@@ -49,18 +49,17 @@ public class PrestamoRestController {
         miPrimerPrestamo.setFechaAcreditacion(LocalDate.of(2019, 10, 20));
 
         miPrimerPrestamo.setNumero(numero);
-        
+
         return miPrimerPrestamo;
     }
-    
+
     @RequestMapping(method = POST, path = "/apirest/prestamos")
-    public void crearPrestamo(@RequestBody PrestamoPersonal prestamo){
-        
+    public void crearPrestamo(@RequestBody PrestamoPersonal prestamo) {
+
         //No se puede usar la clase "Prestamo" porque la conversión
         // no maneja clases abstractas
-        
         System.out.println(prestamo);
-        
+
     }
-    
+
 }
